@@ -32,7 +32,10 @@ bool DriverInfoLib::GetPropertyValue(DWORD propIdent, unsigned int idx, DWORD & 
 
 bool DriverInfoLib::GetPropertyValue(DWORD propIdent, unsigned int idx, String ^ value)
 {
-	return driverInfo->GetPropertyValue(propIdent, idx, marshal_as<std::wstring>(value));
+	std::wstring ws;
+	bool ret = driverInfo->GetPropertyValue(propIdent, idx, ws);
+	value = marshal_as<String ^>(ws);
+	return ret;
 }
 
 List<String ^> ^ DriverInfoLib::GetPropertyValue(DWORD propIdent, unsigned int idx)

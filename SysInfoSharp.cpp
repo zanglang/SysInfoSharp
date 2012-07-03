@@ -88,19 +88,19 @@ bool SysInfoLib::Compare(String ^actualValue, String ^testValue, ComparisonMetho
 
 bool SysInfoLib::CompareStr(String ^reference, String ^value, ComparisonMethods method)
 {
-	int ret = SysInfo::CompareStr(
-				marshal_as<std::wstring>(reference),
-				marshal_as<std::wstring>(value),
-				static_cast<DWORD>(method));
+	std::wstring szRef, szValue;
+	int ret = SysInfo::CompareStr(szRef, szValue, static_cast<DWORD>(method));
+	reference = marshal_as<String ^>(szRef);
+	value = marshal_as<String ^>(szValue);
 	return ret != 0;
 }
 
 bool SysInfoLib::CompareVersionString(String ^reference, String ^value, ComparisonMethods method)
 {
-	int ret = SysInfo::CompareVersionString(
-				marshal_as<std::wstring>(reference),
-				marshal_as<std::wstring>(value),
-				static_cast<DWORD>(method));
+	std::wstring szRef, szValue;
+	int ret = SysInfo::CompareVersionString(szRef, szValue, static_cast<DWORD>(method));
+	reference = marshal_as<String ^>(szRef);
+	value = marshal_as<String ^>(szValue);
 	return ret != 0;
 }
 
