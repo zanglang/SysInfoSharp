@@ -111,7 +111,7 @@
     <ProjectReference Include="..\appsdkutils\appsdkutils.vcxproj">
       <Project>{7c3868a4-4e98-4035-861d-d0c1779c4c98}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\muse2\build\vcproj\muse\muse_lib\muse_lib.vcxproj">
+    <ProjectReference Include="..\muse2\build\muselib.vcxproj">
       <Project>{d8bca5f8-7f80-4259-a784-21bb543e8997}</Project>
     </ProjectReference>
     <ProjectReference Include="..\SysInfo\SysInfo.vcxproj">
