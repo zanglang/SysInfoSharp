@@ -16,11 +16,13 @@ namespace SysInfoSharp {
 	public:
 		DriverInfoLib(void);
 		DriverInfoLib(const GUID & classGuid);
+		DriverInfoLib(String ^classGuid);
 
-		unsigned int GetNumDevices();
-		bool GetPropertyValue(DWORD propIdent, unsigned int idx, DWORD & value);
-		bool GetPropertyValue(DWORD propIdent, unsigned int idx, String ^ value);
-		List<String ^> ^ DriverInfoLib::GetPropertyValue(DWORD propIdent, unsigned int idx);
+		int GetNumDevices();
+		DWORD GetPropertyValue(DWORD propIdent, int idx);
+		String ^ GetPropertyString(DWORD propIdent, int idx);
+		List<String ^> ^ GetPropertyList(DWORD propIdent, int idx);
+		bool GetPropertyValueEx(DWORD propIdent, int idx, DWORD* dwType, BYTE** buffer);
 
 	private:
 		DriverInfo *driverInfo;
